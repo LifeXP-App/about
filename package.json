@@ -10,9 +10,11 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.7",
+    "@supabase/supabase-js": "^2.108.2",
     "motion": "^11.15.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^7.18.0"
   },
   "devDependencies": {
     "@fontsource-variable/geist": "^5.1.0",

@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Sparkle, ArrowDown } from "@phosphor-icons/react";
 import { PhoneFrame } from "./ui/PhoneFrame.jsx";
-import { APP_URL } from "../data.jsx";
+import { MagneticButton } from "./ui/MagneticButton.jsx";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -61,12 +61,13 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.22, ease: EASE }}
             className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9"
           >
-            <a
-              href={APP_URL}
-              className="rounded-full bg-accent px-6 py-3 text-[15px] font-semibold text-accent-fg shadow-[0_10px_30px_-10px_var(--accent)] transition-transform duration-150 hover:bg-accent-hover active:scale-[0.97]"
+            <MagneticButton
+              as="a"
+              href="#community"
+              className="rounded-full bg-accent px-6 py-3 text-[15px] font-semibold text-accent-fg shadow-[0_10px_30px_-10px_var(--accent)] transition-colors hover:bg-accent-hover"
             >
-              Get early access
-            </a>
+              Join the community
+            </MagneticButton>
             <a
               href="#how"
               className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-[15px] font-medium text-text transition-colors hover:bg-surface"

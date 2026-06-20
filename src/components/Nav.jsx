@@ -1,9 +1,17 @@
 import { useEffect, useState } from "react";
-import { motion } from "motion/react";
-import { APP_URL } from "../data.jsx";
+import { motion, useScroll, useMotionValueEvent } from "motion/react";
+
+const MAX_LEVEL = 5;
 
 export function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const [level, setLevel] = useState(1);
+  const { scrollYProgress } = useScroll();
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    const next = Math.min(MAX_LEVEL, Math.floor(v * MAX_LEVEL) + 1);
+    setLevel((prev) => (prev === next ? prev : next));
+  });
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -26,22 +34,40 @@ export function Nav() {
             : "border-b border-transparent"
         }`}
       >
-        <a href="#top" className="font-serif text-xl font-semibold tracking-tight">
-          LifeXP
-        </a>
+        <div className="flex items-center gap-2.5">
+          <a href="#top" className="font-serif text-xl font-semibold tracking-tight">
+            LifeXP
+          </a>
+          <span
+            aria-hidden
+            className="flex items-center gap-1 rounded-full border border-border bg-bg/60 px-2 py-0.5 text-[11px] font-semibold tabular-nums tracking-wide text-muted backdrop-blur-md"
+          >
+            <span className="text-accent">LV</span>
+            <motion.span
+              key={level}
+              initial={{ y: -6, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.25 }}
+              className="text-text"
+            >
+              {level}
+            </motion.span>
+            <span className="text-faint">/ {MAX_LEVEL}</span>
+          </span>
+        </div>
 
         <nav className="hidden items-center gap-8 text-sm text-muted md:flex">
           <a href="#aspects" className="transition-colors hover:text-text">Aspects</a>
           <a href="#how" className="transition-colors hover:text-text">How it works</a>
-          <a href="#mastery" className="transition-colors hover:text-text">Mastery</a>
           <a href="#science" className="transition-colors hover:text-text">Why it works</a>
+          <a href="#community" className="transition-colors hover:text-text">Community</a>
         </nav>
 
         <a
-          href={APP_URL}
+          href="#community"
           className="rounded-full bg-text px-4 py-2 text-sm font-medium text-bg transition-transform duration-150 hover:opacity-90 active:scale-[0.97]"
         >
-          Get early access
+          Join the community
         </a>
       </div>
     </motion.header>

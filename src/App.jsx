@@ -1,30 +1,41 @@
-import { Nav } from "./components/Nav.jsx";
-import { Hero } from "./components/Hero.jsx";
-import { Aspects } from "./components/Aspects.jsx";
-import { HowItWorks } from "./components/HowItWorks.jsx";
-import { AiSection } from "./components/AiSection.jsx";
-import { Mastery } from "./components/Mastery.jsx";
-import { Science } from "./components/Science.jsx";
-import { Social } from "./components/Social.jsx";
-import { CtaSection } from "./components/CtaSection.jsx";
-import { Footer } from "./components/Footer.jsx";
+import { lazy, Suspense, useEffect } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { Home } from "./pages/Home.jsx";
+
+// Full chat lives on its own route and pulls in supabase-js — load on demand.
+const CommunityPage = lazy(() =>
+  import("./pages/CommunityPage.jsx").then((m) => ({ default: m.CommunityPage }))
+);
+
+function ScrollToTop() {
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+  return null;
+}
 
 export default function App() {
   return (
     <>
-      <div className="grain" aria-hidden />
-      <Nav />
-      <main>
-        <Hero />
-        <Aspects />
-        <HowItWorks />
-        <AiSection />
-        <Mastery />
-        <Science />
-        <Social />
-        <CtaSection />
-      </main>
-      <Footer />
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/community"
+          element={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[100dvh] items-center justify-center text-muted">
+                  Loading the chat…
+                </div>
+              }
+            >
+              <CommunityPage />
+            </Suspense>
+          }
+        />
+      </Routes>
     </>
   );
 }

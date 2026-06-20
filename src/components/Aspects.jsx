@@ -1,7 +1,12 @@
+import { useState } from "react";
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import { SpotlightCard } from "./ui/SpotlightCard.jsx";
+import { AspectRadar } from "./AspectRadar.jsx";
 import { ASPECTS } from "../data.jsx";
 
 export function Aspects() {
+  const [active, setActive] = useState(null);
+
   return (
     <section id="aspects" className="px-5 py-24 sm:px-8 sm:py-32">
       <div className="mx-auto max-w-6xl">
@@ -15,28 +20,47 @@ export function Aspects() {
           </h2>
         </Reveal>
 
-        <RevealGroup className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-5">
-          {ASPECTS.map(({ name, desc, Icon, color }) => (
-            <RevealItem
-              key={name}
-              className="group rounded-2xl border border-border bg-surface p-5 transition-colors duration-300 hover:border-border-strong"
-            >
-              <span
-                className="inline-flex h-11 w-11 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-105"
-                style={{ background: `color-mix(in srgb, ${color} 14%, transparent)` }}
-              >
-                <Icon size={22} weight="duotone" style={{ color }} />
-              </span>
-              <h3
-                className="mt-4 text-base font-semibold"
-                style={{ color }}
-              >
-                {name}
-              </h3>
-              <p className="mt-1 text-sm leading-relaxed text-muted">{desc}</p>
-            </RevealItem>
-          ))}
-        </RevealGroup>
+        <div className="mt-14 grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
+          {/* radar */}
+          <Reveal className="order-2 lg:order-1">
+            <AspectRadar active={active} setActive={setActive} />
+          </Reveal>
+
+          {/* legend cards */}
+          <RevealGroup className="order-1 grid gap-3 lg:order-2">
+            {ASPECTS.map(({ name, desc, Icon, color }, i) => (
+              <RevealItem key={name}>
+                <SpotlightCard
+                  color={color}
+                  onMouseEnter={() => setActive(i)}
+                  onMouseLeave={() => setActive(null)}
+                  className="rounded-2xl border bg-surface p-4 transition-colors duration-200"
+                  style={{
+                    borderColor: active === i ? color : "var(--border)",
+                  }}
+                >
+                  <div className="flex items-center gap-4">
+                    <span
+                      className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-transform duration-300"
+                      style={{
+                        background: `color-mix(in srgb, ${color} 14%, transparent)`,
+                        transform: active === i ? "scale(1.08)" : "none",
+                      }}
+                    >
+                      <Icon size={22} weight="duotone" style={{ color }} />
+                    </span>
+                    <div>
+                      <h3 className="text-base font-semibold" style={{ color }}>
+                        {name}
+                      </h3>
+                      <p className="text-sm leading-relaxed text-muted">{desc}</p>
+                    </div>
+                  </div>
+                </SpotlightCard>
+              </RevealItem>
+            ))}
+          </RevealGroup>
+        </div>
       </div>
     </section>
   );

@@ -29,7 +29,7 @@ export function CommunityPage() {
           <Reveal>
             <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-[13px] font-medium text-muted">
               <Clock size={15} weight="duotone" className="text-accent" />
-              Early access is rolling out
+              V1 is rolling out
             </span>
             <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.1] tracking-[-0.02em] text-text sm:text-5xl">
               Join the chat while you wait.

@@ -20,8 +20,8 @@ export function CommunityTeaser() {
             The app is coming. The community is already here.
           </h2>
           <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-muted">
-            People are sharing the goals they're chasing while early access rolls
-            out. Pull up a chair.
+            People are sharing the goals they're chasing while V1 rolls out.
+            Pull up a chair.
           </p>
         </Reveal>
 

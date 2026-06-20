@@ -1,7 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import { Sparkle, ArrowDown } from "@phosphor-icons/react";
-import { PhoneFrame } from "./ui/PhoneFrame.jsx";
 import { MagneticButton } from "./ui/MagneticButton.jsx";
+import { HeroDevices } from "./ui/HeroDevices.jsx";
 
 const EASE = [0.16, 1, 0.3, 1];
 
@@ -78,63 +78,9 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: phone + floating reward chips */}
-        <motion.div
-          initial={reduce ? false : { opacity: 0, scale: 0.96, y: 24 }}
-          animate={{ opacity: 1, scale: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 0.18, ease: EASE }}
-          className="relative mx-auto w-full max-w-[300px] sm:max-w-[330px]"
-        >
-          <PhoneFrame
-            src="/screens/feed-post.png"
-            alt="A LifeXP feed post showing a drawing goal with earned XP"
-            priority
-          />
-
-          <FloatChip
-            reduce={reduce}
-            className="-left-6 top-24 sm:-left-10"
-            color="var(--energy)"
-            delay={0.6}
-          >
-            +231 XP
-          </FloatChip>
-          <FloatChip
-            reduce={reduce}
-            className="-right-4 bottom-28 sm:-right-8"
-            color="var(--logic)"
-            delay={0.9}
-          >
-            Day 179 streak
-          </FloatChip>
-        </motion.div>
+        {/* Right: interactive device cluster (click-to-front + parallax) */}
+        <HeroDevices />
       </div>
     </section>
-  );
-}
-
-function FloatChip({ children, className, color, delay, reduce }) {
-  return (
-    <motion.div
-      initial={reduce ? false : { opacity: 0, scale: 0.8 }}
-      animate={
-        reduce
-          ? { opacity: 1 }
-          : { opacity: 1, scale: 1, y: [0, -8, 0] }
-      }
-      transition={{
-        opacity: { duration: 0.4, delay },
-        scale: { duration: 0.5, delay, ease: EASE },
-        y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay },
-      }}
-      className={`absolute flex items-center gap-2 rounded-full border border-border bg-surface-2 px-3.5 py-2 text-sm font-semibold shadow-[0_12px_30px_-12px_rgb(var(--shadow-tint)/0.4)] ${className}`}
-    >
-      <span
-        className="h-2 w-2 rounded-full"
-        style={{ background: color }}
-        aria-hidden
-      />
-      {children}
-    </motion.div>
   );
 }

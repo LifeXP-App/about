@@ -1,4 +1,5 @@
 import { Reveal, RevealGroup, RevealItem } from "./ui/Reveal.jsx";
+import { TabletFrame } from "./ui/DeviceFrames.jsx";
 
 const STEPS = [
   {
@@ -31,6 +32,13 @@ export function HowItWorks() {
               Three steps, repeated. Each pass leaves a mark you can see, which
               is exactly why the next one gets easier to start.
             </p>
+          </Reveal>
+
+          <Reveal delay={0.12} className="mt-10 hidden max-w-md lg:block">
+            <TabletFrame
+              src="/screens/tablet-goals.png"
+              alt="The LifeXP goals screen on a tablet"
+            />
           </Reveal>
         </div>
 

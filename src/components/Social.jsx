@@ -1,6 +1,7 @@
 import { Lock, Users, Trophy } from "@phosphor-icons/react";
 import { Reveal } from "./ui/Reveal.jsx";
 import { PhoneFrame } from "./ui/PhoneFrame.jsx";
+import { BrowserFrame } from "./ui/DeviceFrames.jsx";
 
 const POINTS = [
   { Icon: Trophy, title: "Built on inspiration, not performance theater", body: "Share achievements and growth profiles with people who value progress, not posturing." },
@@ -35,11 +36,19 @@ export function Social() {
           </div>
         </div>
 
-        <Reveal delay={0.1} className="mx-auto w-full max-w-[300px]">
-          <PhoneFrame
-            src="/screens/followers.png"
-            alt="LifeXP followers list showing players with mastery titles and life levels"
+        {/* feed on the web + followers on phone */}
+        <Reveal delay={0.1} className="relative mx-auto w-full max-w-[300px] sm:max-w-[440px]">
+          <BrowserFrame
+            src="/screens/desktop-home.png"
+            alt="The LifeXP social feed on the web"
+            className="hidden sm:block"
           />
+          <div className="mx-auto w-[220px] max-w-[300px] sm:absolute sm:-bottom-8 sm:-right-6 sm:mx-0 sm:w-[150px] lg:w-[168px]">
+            <PhoneFrame
+              src="/screens/followers.png"
+              alt="LifeXP followers list showing players with mastery titles and life levels"
+            />
+          </div>
         </Reveal>
       </div>
     </section>

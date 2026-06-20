@@ -19,8 +19,8 @@ export function AspectRadar({ active, setActive }) {
 
   return (
     <svg
-      viewBox={`0 0 ${SIZE} ${SIZE}`}
-      className="mx-auto w-full max-w-[360px]"
+      viewBox={`-30 0 ${SIZE + 60} ${SIZE}`}
+      className="mx-auto w-full max-w-[400px]"
       role="img"
       aria-label="Growth profile across the five aspects"
     >

@@ -11,7 +11,7 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="relative overflow-hidden px-5 pb-20 pt-28 sm:px-8 sm:pt-32"
+      className="relative overflow-hidden px-5 pb-20 pt-24 sm:px-8 sm:pt-32"
     >
       {/* soft brand wash, fixed-tint, no pure black */}
       <div
@@ -40,7 +40,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.06, ease: EASE }}
-            className="mt-6 font-serif text-[2.6rem] font-medium leading-[1.07] tracking-[-0.02em] text-text sm:text-6xl"
+            className="mt-5 font-serif text-[2.1rem] font-medium leading-[1.1] tracking-[-0.02em] text-text sm:text-6xl sm:leading-[1.07]"
           >
             Turn your growth into a game you actually want to play.
           </motion.h1>
@@ -49,7 +49,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.14, ease: EASE }}
-            className="mt-6 max-w-md text-lg leading-relaxed text-muted"
+            className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg"
           >
             Set meaningful goals. Earn XP through real effort. Level up across
             every dimension of life.
@@ -59,7 +59,7 @@ export function Hero() {
             initial={reduce ? false : { opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.22, ease: EASE }}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-7 flex flex-wrap items-center gap-3 sm:mt-9"
           >
             <a
               href={APP_URL}

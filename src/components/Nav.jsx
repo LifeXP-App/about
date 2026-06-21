@@ -25,17 +25,18 @@ export function Nav() {
       initial={{ y: -64, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-x-0 top-0 z-50"
+      className="fixed inset-x-0 top-3 z-50 px-4 sm:top-4"
     >
       <div
-        className={`mx-auto flex h-16 max-w-6xl items-center justify-between px-5 transition-colors duration-300 sm:px-8 ${
+        className={`mx-auto flex h-14 max-w-5xl items-center justify-between gap-4 rounded-full border px-3 transition-all duration-300 sm:px-4 ${
           scrolled
-            ? "border-b border-border bg-bg/80 backdrop-blur-xl"
-            : "border-b border-transparent"
+            ? "border-border bg-bg/70 shadow-lg shadow-black/20 backdrop-blur-xl"
+            : "border-border/60 bg-bg/40 backdrop-blur-md"
         }`}
       >
-        <div className="flex items-center gap-2.5">
-          <a href="#top" className="font-serif text-xl font-semibold tracking-tight">
+        <div className="flex items-center gap-2.5 pl-1">
+          <a href="#top" className="flex items-center gap-2 font-serif text-xl font-semibold tracking-tight">
+            <img src="/logodark.png" alt="" className="h-7 w-7" />
             LifeXP
           </a>
           <span
@@ -67,7 +68,8 @@ export function Nav() {
           href="#community"
           className="rounded-full bg-text px-4 py-2 text-sm font-medium text-bg transition-transform duration-150 hover:opacity-90 active:scale-[0.97]"
         >
-          Join the community
+          <span className="hidden sm:inline">Join the community</span>
+          <span className="sm:hidden">Join</span>
         </a>
       </div>
     </motion.header>

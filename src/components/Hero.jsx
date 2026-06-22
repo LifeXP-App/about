@@ -42,7 +42,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.06, ease: EASE }}
             className="mt-5 font-serif text-[2.1rem] font-medium leading-[1.1] tracking-[-0.02em] text-text sm:text-6xl sm:leading-[1.07]"
           >
-            Turn your growth into a game you actually want to play.
+            Make your growth impossible to ignore.
           </motion.h1>
 
           <motion.p
@@ -51,8 +51,8 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.14, ease: EASE }}
             className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg"
           >
-            Set meaningful goals. Earn XP through real effort. Level up across
-            every dimension of life.
+            LifeXP turns real effort into XP, levels, and mastery — visible
+            progress you can track, share, and be proud of.
           </motion.p>
 
           <motion.div

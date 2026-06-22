@@ -8,7 +8,7 @@ import { SESSION_DEMO } from "../data.jsx";
 const FEATURES = [
   { Icon: Pulse, text: "Real-time XP based on actual effort, not vanity metrics" },
   { Icon: TrendUp, text: "Difficulty that adapts as you get better" },
-  { Icon: Sparkle, text: "Growth insights that get more personal over time" },
+  { Icon: Sparkle, text: "Progress you can see compounding, session after session" },
 ];
 
 export function AiSection() {

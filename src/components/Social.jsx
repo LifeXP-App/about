@@ -4,7 +4,7 @@ import { PhoneFrame } from "./ui/PhoneFrame.jsx";
 import { BrowserFrame } from "./ui/DeviceFrames.jsx";
 
 const POINTS = [
-  { Icon: Trophy, title: "Built on inspiration, not performance theater", body: "Share achievements and growth profiles with people who value progress, not posturing." },
+  { Icon: Trophy, title: "Proof of effort, not performance theater", body: "Share achievements and growth profiles with people who value real progress, not posturing." },
   { Icon: Users, title: "Circles around ambition", body: "Encourage discipline, nudge friends mid-session, and build momentum together." },
   { Icon: Lock, title: "Private or public, you decide", body: "Run LifeXP as a quiet personal engine or an open social environment. You control the exposure." },
 ];

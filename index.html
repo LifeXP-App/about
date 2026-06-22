@@ -3,21 +3,199 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Hide the prerendered (crawler-only) markup from real browsers until React
+         mounts, so humans get the animated app instead of a flash of the static
+         snapshot. No-JS clients never add the class, so crawlers still see content. -->
+    <style>
+      .js-loading #root {
+        visibility: hidden;
+      }
+    </style>
+    <script>
+      document.documentElement.classList.add("js-loading");
+    </script>
+
+    <!-- Primary -->
     <title>LifeXP — Turn your growth into a game you actually want to play</title>
     <meta
       name="description"
-      content="Set meaningful goals, earn XP through real effort, and watch yourself level up across every dimension of life. A self-improvement app built on modern habit science."
+      content="LifeXP turns real effort into XP, levels, and mastery. Set meaningful goals, run focused sessions, and watch yourself level up across Physique, Energy, Logic, Creativity, and Social — built on modern habit science."
     />
-    <meta property="og:title" content="LifeXP — Gamify your growth" />
+    <link rel="canonical" href="https://about.lifexp.live/" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta name="author" content="LifeXP" />
+    <meta name="application-name" content="LifeXP" />
+    <meta name="keywords" content="LifeXP, gamify growth, habit tracker, self-improvement app, XP, leveling up, atomic habits, personal development, productivity, mastery" />
+
+    <!-- Icons & PWA -->
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="apple-mobile-web-app-title" content="LifeXP" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="theme-color" content="#f3f4f6" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d0d10" media="(prefers-color-scheme: dark)" />
+
+    <!-- Open Graph -->
+    <meta property="og:site_name" content="LifeXP" />
+    <meta property="og:title" content="LifeXP — Make your growth impossible to ignore" />
     <meta
       property="og:description"
-      content="Earn XP through real effort. Level up across Physique, Energy, Logic, Creativity, and Social. Built on modern habit science."
+      content="Turn real effort into XP, levels, and mastery. Level up across Physique, Energy, Logic, Creativity, and Social. Built on modern habit science."
     />
     <meta property="og:type" content="website" />
-    <meta name="theme-color" content="#f3f4f6" />
+    <meta property="og:url" content="https://about.lifexp.live/" />
+    <meta property="og:image" content="https://about.lifexp.live/og.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="LifeXP — turn real effort into XP, levels, and mastery." />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="LifeXP — Make your growth impossible to ignore" />
+    <meta
+      name="twitter:description"
+      content="Turn real effort into XP, levels, and mastery. Built on modern habit science."
+    />
+    <meta name="twitter:image" content="https://about.lifexp.live/og.png" />
+    <meta name="twitter:image:alt" content="LifeXP — turn real effort into XP, levels, and mastery." />
+
+    <!-- Structured data: Organization, WebSite, SoftwareApplication, FAQ -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://about.lifexp.live/#organization",
+          "name": "LifeXP",
+          "url": "https://lifexp.live/",
+          "logo": "https://about.lifexp.live/logodark.png",
+          "description": "LifeXP turns real-world effort into XP, levels, and mastery across five life aspects, built on modern habit science.",
+          "sameAs": ["https://github.com/LifeXP-App"]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://about.lifexp.live/#website",
+          "url": "https://about.lifexp.live/",
+          "name": "LifeXP",
+          "description": "Turn your growth into a game you actually want to play.",
+          "publisher": { "@id": "https://about.lifexp.live/#organization" },
+          "inLanguage": "en"
+        },
+        {
+          "@type": "SoftwareApplication",
+          "@id": "https://about.lifexp.live/#app",
+          "name": "LifeXP",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web, iOS, Android",
+          "url": "https://lifexp.live/",
+          "image": "https://about.lifexp.live/og.png",
+          "description": "LifeXP turns real effort into XP, levels, and mastery. An AI engine reads the context behind each focused session and awards XP across Physique, Energy, Logic, Creativity, and Social. Built on modern habit science.",
+          "publisher": { "@id": "https://about.lifexp.live/#organization" },
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Real-time XP based on actual effort, not vanity metrics",
+            "Difficulty that adapts as you get better",
+            "AI-powered feedback on every session",
+            "Mastery Titles earned through sustained commitment",
+            "Private or public social accountability"
+          ]
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://about.lifexp.live/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "What is LifeXP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "LifeXP is a gamified self-improvement app that turns real effort into XP, levels, and Mastery Titles across five life aspects: Physique, Energy, Logic, Creativity, and Social."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does LifeXP award XP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "An AI engine reads the context, duration, and intent behind each focused session and splits XP across the aspects you actually exercised. Rewards are based on real effort, not vanity metrics."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are the five aspects in LifeXP?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Physique (strength, movement, resilience), Energy (focus, stability, stamina), Logic (learning, strategy, cognition), Creativity (creation, taste, experimentation), and Social (communication, empathy, presence)."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Is LifeXP based on science?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. LifeXP draws on modern habit-building science, including ideas popularized in Atomic Habits, and adds gamification, social accountability, and AI-powered feedback on every session."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What are Mastery Titles?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "As XP compounds, your strongest domain earns a Mastery Title such as Warrior, Protagonist, Prodigy, Alchemist, or Diplomat. They are not granted quickly — they emerge from sustained commitment."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use LifeXP privately?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. You can run LifeXP as a quiet personal engine or as an open, public social environment. You control the exposure."
+              }
+            }
+          ]
+        }
+      ]
+    }
+    </script>
   </head>
   <body>
     <div id="root"></div>
+    <noscript>
+      <main>
+        <h1>LifeXP — Make your growth impossible to ignore</h1>
+        <p>
+          LifeXP turns real effort into XP, levels, and mastery — visible
+          progress you can track, share, and be proud of. Built on modern habit
+          science.
+        </p>
+        <h2>The five aspects</h2>
+        <ul>
+          <li>Physique — strength, movement, resilience.</li>
+          <li>Energy — focus, stability, stamina.</li>
+          <li>Logic — learning, strategy, cognition.</li>
+          <li>Creativity — creation, taste, experimentation.</li>
+          <li>Social — communication, empathy, presence.</li>
+        </ul>
+        <h2>How it works</h2>
+        <ol>
+          <li>Set a goal that means something.</li>
+          <li>Run a focused session — LifeXP awards XP the moment you finish.</li>
+          <li>Turn sustained effort into permanent Achievements and Mastery Titles.</li>
+        </ol>
+        <p><a href="/community">Join the LifeXP community</a></p>
+      </main>
+    </noscript>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>

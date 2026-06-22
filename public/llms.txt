@@ -1,0 +1,65 @@
+# LifeXP
+
+> LifeXP is a self-improvement app that turns real-world effort into XP, levels, and visible mastery. Instead of chasing vague goals, you run focused sessions; an AI engine reads the context, duration, and intent behind your effort and awards XP across five life aspects. Progress compounds into Achievements and Mastery Titles you can track, share, and be proud of. It is built on modern habit science, including ideas popularized in *Atomic Habits*, and adds the things a book cannot: gamification, social accountability, and AI-powered feedback on every session.
+
+## What LifeXP is
+
+- A gamified personal-growth and habit-building app for people who want progress to be visible and motivating.
+- Effort is converted into XP the moment a session ends — rewards are based on real effort, not vanity metrics or activity logging.
+- Difficulty adapts as you improve, so the system keeps challenging you over time.
+- You can run LifeXP privately as a quiet personal engine, or publicly as a social environment. You control the exposure.
+
+## The five aspects
+
+Every session splits its XP across the aspects you actually exercised:
+
+- **Physique** — strength, movement, resilience.
+- **Energy** — focus, stability, stamina.
+- **Logic** — learning, strategy, cognition.
+- **Creativity** — creation, taste, experimentation.
+- **Social** — communication, empathy, presence.
+
+## How it works
+
+1. **Set a goal that means something.** Your goal becomes a structured commitment (e.g. run a marathon, master a craft, rebuild your focus), not an idea you forget by Friday.
+2. **Run a focused session.** Start the timer and do the work. LifeXP reads the context behind your effort — its duration and your intent — then awards XP the instant you finish.
+3. **Turn effort into achievements.** Sustained effort plus completion becomes a permanent Achievement, forming a verified timeline of what you actually finished.
+
+## Mastery Titles
+
+As XP compounds, your strongest domain earns a Mastery Title. Titles are not granted quickly — they emerge from sustained commitment:
+
+- **Warrior** — Physique
+- **Protagonist** — Energy
+- **Prodigy** — Logic
+- **Alchemist** — Creativity
+- **Diplomat** — Social
+
+## Why it works (the science)
+
+- **Immediate feedback** — a reward you can see the instant you finish is what makes a behavior worth repeating. XP closes the gap between effort and payoff.
+- **Compounding by 1%** — single sessions look small, but stacked over months they are the whole story. LifeXP makes that slow curve visible while it happens.
+- **Identity, not outcomes** — you stop chasing a finish line and start becoming the kind of person who shows up. Every session is a vote for who you are.
+
+LifeXP draws on modern habit-building science, including ideas popularized in *Atomic Habits*, and layers on gamification, social accountability, and AI-powered feedback.
+
+## Community & social
+
+- Share achievements and growth profiles with people who value real progress, not posturing — proof of effort, not performance theater.
+- Build circles around ambition: encourage discipline, nudge friends mid-session, and build momentum together.
+- Privacy is your choice: run LifeXP as a private personal engine or an open, public social space.
+
+## Key pages
+
+- [Home](https://about.lifexp.live/): Product overview — aspects, how it works, the AI XP engine, Mastery Titles, and the science.
+- [Community](https://about.lifexp.live/community): The LifeXP community space where members share progress and stay accountable.
+- [Open app](https://lifexp.live/): Launch LifeXP.
+
+## Frequently asked questions
+
+- **What is LifeXP?** A gamified self-improvement app that turns real effort into XP, levels, and Mastery Titles across five life aspects.
+- **How does LifeXP award XP?** An AI engine reads the context, duration, and intent behind each session and splits XP across the aspects you exercised — based on effort, not vanity metrics.
+- **What are the five aspects?** Physique, Energy, Logic, Creativity, and Social.
+- **Is LifeXP based on science?** Yes — it draws on modern habit-building science, including ideas popularized in *Atomic Habits*, plus gamification, social accountability, and AI feedback.
+- **What are Mastery Titles?** Long-term recognition earned when a domain reaches a threshold through sustained commitment (Warrior, Protagonist, Prodigy, Alchemist, Diplomat).
+- **Can I use LifeXP privately?** Yes — run it as a private personal engine or a public social environment. You control the exposure.

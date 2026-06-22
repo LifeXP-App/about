@@ -36,8 +36,10 @@ export function HowItWorks() {
 
           <Reveal delay={0.12} className="mt-10 hidden max-w-md lg:block">
             <TabletFrame
-              src="/screens/tablet-goals.png"
+              src="/screens/tablet-goals.webp"
               alt="The LifeXP goals screen on a tablet"
+              width={1639}
+              height={870}
             />
           </Reveal>
         </div>

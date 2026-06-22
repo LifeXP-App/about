@@ -39,13 +39,15 @@ export function Social() {
         {/* feed on the web + followers on phone */}
         <Reveal delay={0.1} className="relative mx-auto w-full max-w-[300px] sm:max-w-[440px]">
           <BrowserFrame
-            src="/screens/desktop-home.png"
+            src="/screens/desktop-home.webp"
             alt="The LifeXP social feed on the web"
             className="hidden sm:block"
+            width={1868}
+            height={1008}
           />
           <div className="mx-auto w-[220px] max-w-[300px] sm:absolute sm:-bottom-8 sm:-right-6 sm:mx-0 sm:w-[150px] lg:w-[168px]">
             <PhoneFrame
-              src="/screens/followers.png"
+              src="/screens/followers.webp"
               alt="LifeXP followers list showing players with mastery titles and life levels"
             />
           </div>

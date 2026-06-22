@@ -18,7 +18,7 @@ export function AiSection() {
         {/* phone */}
         <Reveal className="order-2 mx-auto w-full max-w-[300px] lg:order-1">
           <PhoneFrame
-            src="/screens/session-xp.png"
+            src="/screens/session-xp.webp"
             alt="A LifeXP meditation session awarding XP across aspects"
           />
         </Reveal>

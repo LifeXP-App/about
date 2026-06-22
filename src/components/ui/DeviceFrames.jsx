@@ -13,23 +13,25 @@ function Placeholder({ label }) {
   );
 }
 
-function FramedImage({ src, alt, label, priority, imgClass = "" }) {
+function FramedImage({ src, alt, label, priority, width, height, imgClass = "" }) {
   const [failed, setFailed] = useState(false);
   if (!src || failed) return <Placeholder label={label} />;
   return (
     <img
       src={src}
       alt={alt}
+      width={width}
+      height={height}
       onError={() => setFailed(true)}
       loading={priority ? "eager" : "lazy"}
       fetchPriority={priority ? "high" : "auto"}
-      className={`block w-full select-none ${imgClass}`}
+      className={`block h-auto w-full select-none ${imgClass}`}
       draggable={false}
     />
   );
 }
 
-export function BrowserFrame({ src, alt, label = "Add desktop screenshot → /screens/desktop-home.png", className = "", priority = false }) {
+export function BrowserFrame({ src, alt, label = "Add desktop screenshot → /screens/desktop-home.png", className = "", priority = false, width, height }) {
   return (
     <div
       className={`overflow-hidden rounded-xl border border-border-strong bg-surface-2 shadow-[0_40px_100px_-30px_rgb(var(--shadow-tint)/0.5)] ${className}`}
@@ -44,18 +46,18 @@ export function BrowserFrame({ src, alt, label = "Add desktop screenshot → /sc
           lifexp.live
         </span>
       </div>
-      <FramedImage src={src} alt={alt} label={label} priority={priority} />
+      <FramedImage src={src} alt={alt} label={label} priority={priority} width={width} height={height} />
     </div>
   );
 }
 
-export function TabletFrame({ src, alt, label = "Add tablet screenshot → /screens/tablet-goals.png", className = "" }) {
+export function TabletFrame({ src, alt, label = "Add tablet screenshot → /screens/tablet-goals.png", className = "", width, height }) {
   return (
     <div
       className={`rounded-[1.4rem] border border-border-strong bg-[#0a0a0c] p-1.5 shadow-[0_30px_80px_-24px_rgb(var(--shadow-tint)/0.5)] ${className}`}
     >
       <div className="overflow-hidden rounded-[1rem] bg-bg">
-        <FramedImage src={src} alt={alt} label={label} />
+        <FramedImage src={src} alt={alt} label={label} width={width} height={height} />
       </div>
     </div>
   );

@@ -66,9 +66,11 @@ export function HeroDevices() {
         className="relative hidden w-full cursor-pointer sm:block"
       >
         <BrowserFrame
-          src="/screens/desktop-profile.png"
+          src="/screens/desktop-profile.webp"
           alt="LifeXP on the web: your growth profile with the five-aspect radar"
           priority
+          width={1861}
+          height={1001}
         />
       </motion.button>
 
@@ -88,7 +90,7 @@ export function HeroDevices() {
         className="mx-auto block w-[220px] max-w-[300px] cursor-pointer sm:absolute sm:-bottom-10 sm:-left-6 sm:mx-0 sm:w-[150px] lg:w-[170px]"
       >
         <PhoneFrame
-          src="/screens/feed-post.png"
+          src="/screens/feed-post.webp"
           alt="A LifeXP feed post showing a drawing goal with earned XP"
           priority
         />

@@ -93,9 +93,8 @@ export function SurveyModal({ onClose }) {
     setStep((s) => s + delta);
   }
 
-  /* Dismiss without saving — marks done so we never show again. */
+  /* Dismiss without saving — does NOT mark done, so it reappears on reload. */
   function handleSkip() {
-    markSurveyDone();
     onClose();
   }
 

@@ -55,7 +55,7 @@ const QUESTIONS = [
     id: "gender",
     label: "How do you identify?",
     type: "radio",
-    options: ["Man", "Woman", "Non-binary", "Prefer not to say"],
+    options: ["Man", "Woman", "Prefer not to say"],
   },
 ];
 

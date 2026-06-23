@@ -21,10 +21,7 @@ export function Home() {
     // Don't bother scheduling the timer if the survey is already done.
     if (hasTakenSurvey()) return;
 
-    // Show after 10 seconds — gives the visitor time to read the hero copy
-    // before we interrupt them. Only fires once per browser.
-    const timer = setTimeout(() => setShowSurvey(true), 10_000);
-    return () => clearTimeout(timer);
+    setShowSurvey(true);
   }, []);
 
   return (

@@ -57,7 +57,7 @@ const html = `<!doctype html><html><head><meta charset="utf-8"><style>
 </style></head><body>
   <div class="wash"></div>
   <div class="pad">
-    <div class="brand"><img src="${logoUri}" alt=""><span>LifeXP</span></div>
+    <div class="brand"><img src="${logoUri}" alt=""><span>GamiLife</span></div>
     <h1>Make your growth impossible to ignore.</h1>
     <p>Turn real effort into XP, levels, and mastery — built on modern habit science.</p>
     <div class="aspects">
@@ -71,7 +71,7 @@ const browser = await puppeteer.launch({
   args: ["--no-sandbox", "--disable-setuid-sandbox"],
 });
 const page = await browser.newPage();
-await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 2 });
+await page.setViewport({ width: 1200, height: 630, deviceScaleFactor: 1 });
 await page.setContent(html, { waitUntil: "networkidle0" });
 const out = path.join(ROOT, "public/og.png");
 await page.screenshot({ path: out, type: "png", clip: { x: 0, y: 0, width: 1200, height: 630 } });

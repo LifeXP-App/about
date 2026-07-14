@@ -23,7 +23,8 @@ export function isClean(text) {
 }
 
 // Names that would let someone pose as the brand, staff, or a system message.
-const RESERVED_SUBSTRINGS = ["lifexp", "life xp", "welcome to"];
+// Keep the former name reserved so nobody can impersonate legacy brand accounts.
+const RESERVED_SUBSTRINGS = ["gamilife", "gami life", "lifexp", "life xp", "welcome to"];
 const RESERVED_WORDS = [
   "admin", "administrator", "moderator", "mod", "official",
   "team", "staff", "support", "system", "bot",

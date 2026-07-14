@@ -11,14 +11,14 @@
  * fallback baked into index.html keeps crawlers fed in that case.
  */
 import http from "node:http";
-import { readFile, writeFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import { existsSync } from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist");
-const ROUTES = ["/"]; // "/community" is a live, auth-gated chat — not worth prerendering.
+const ROUTES = ["/", "/community"];
 const PORT = 4317;
 
 const MIME = {
@@ -113,6 +113,7 @@ async function main() {
       const html = "<!doctype html>\n" + (await page.content()).replace(/^<!doctype html>/i, "").trimStart();
       const outFile =
         route === "/" ? path.join(DIST, "index.html") : path.join(DIST, route, "index.html");
+      await mkdir(path.dirname(outFile), { recursive: true });
       await writeFile(outFile, html, "utf8");
       console.log(`[prerender] wrote ${path.relative(DIST, outFile)}`);
       await page.close();

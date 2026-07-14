@@ -9,7 +9,7 @@ const PRINCIPLES = [
   {
     k: "02",
     title: "Compounding by 1%",
-    body: "Single sessions look small. Stacked over months they are the whole story. LifeXP makes that slow curve visible while it happens.",
+    body: "Single sessions look small. Stacked over months they are the whole story. GamiLife makes that slow curve visible while it happens.",
   },
   {
     k: "03",
@@ -45,7 +45,7 @@ export function Science() {
           <div className="mt-6 rounded-2xl border border-border bg-surface p-6 sm:p-7">
             <p className="max-w-3xl leading-relaxed text-muted">
               <span className="font-medium text-text">Inspired by the research, built for real life. </span>
-              LifeXP draws on modern habit-building science, including ideas
+              GamiLife draws on modern habit-building science, including ideas
               popularized in <em>Atomic Habits</em>, and layers on the things a
               book cannot give you: gamification, social accountability, and
               AI-powered feedback on every session.

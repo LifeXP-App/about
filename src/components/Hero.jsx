@@ -51,7 +51,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.14, ease: EASE }}
             className="mt-5 max-w-md text-base leading-relaxed text-muted sm:text-lg"
           >
-            LifeXP turns real effort into XP, levels, and mastery — visible
+            GamiLife turns real effort into XP, levels, and mastery — visible
             progress you can track, share, and be proud of.
           </motion.p>
 

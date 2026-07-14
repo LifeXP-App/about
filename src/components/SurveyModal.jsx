@@ -156,7 +156,7 @@ export function SurveyModal({ onClose }) {
                 Quick survey · ~1 min
               </p>
               <p className="mt-0.5 text-md  text-muted">
-                Help us build LifeXP right
+                Help us build GamiLife right
               </p>
             </div>
             <button

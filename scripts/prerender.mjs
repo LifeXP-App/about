@@ -129,8 +129,12 @@ async function main() {
         .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
         .trimStart();
       const html = "<!doctype html>\n" + captured;
+      // Vercel's cleanUrls maps route.html to /route. Flat files avoid relying
+      // on directory-index behavior or SPA rewrites for direct navigation.
       const outFile =
-        route === "/" ? path.join(DIST, "index.html") : path.join(DIST, route, "index.html");
+        route === "/"
+          ? path.join(DIST, "index.html")
+          : path.join(DIST, `${route.slice(1)}.html`);
       await mkdir(path.dirname(outFile), { recursive: true });
       await writeFile(outFile, html, "utf8");
       console.log(`[prerender] wrote ${path.relative(DIST, outFile)}`);

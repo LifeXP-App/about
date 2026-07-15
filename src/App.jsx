@@ -1,6 +1,7 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
+import { NotFound } from "./pages/NotFound.jsx";
 
 const AboutPage = lazy(() =>
   import("./pages/AboutPage.jsx").then((m) => ({ default: m.AboutPage }))
@@ -53,6 +54,7 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

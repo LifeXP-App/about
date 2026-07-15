@@ -6,9 +6,14 @@
  * serves the freshly built /dist, renders "/" in a real browser, and writes the
  * fully-rendered HTML back over dist/index.html so crawlers get real content.
  *
- * Best-effort: if a browser can't launch (e.g. missing Chromium on a CI host),
- * it logs a warning and exits 0 so the deploy still succeeds — the static
- * fallback baked into index.html keeps crawlers fed in that case.
+ * On Vercel/CI the Chrome bundled with puppeteer can't run (missing system
+ * libraries), so we launch the self-contained @sparticuz/chromium build there.
+ *
+ * Locally this is best-effort (a warning keeps `npm run build` usable without
+ * Chromium), but on Vercel a prerender failure fails the build: shipping
+ * without the static route HTML silently degrades SEO. Set PRERENDER_OPTIONAL=1
+ * to allow a deploy through anyway (the SPA rewrite fallback keeps routes
+ * working for humans).
  */
 import http from "node:http";
 import { mkdir, readFile, writeFile } from "node:fs/promises";
@@ -89,27 +94,62 @@ async function autoScroll(page) {
   });
 }
 
+async function launchBrowser() {
+  // Vercel/CI build containers lack the shared libraries Chrome needs, so use
+  // the self-contained @sparticuz/chromium build there. Locally, prefer the
+  // Chrome that puppeteer manages. Each path falls back to the other.
+  const serverless = async () => {
+    const { default: chromium } = await import("@sparticuz/chromium");
+    const { default: puppeteer } = await import("puppeteer");
+    return puppeteer.launch({
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+      headless: chromium.headless ?? true,
+    });
+  };
+  const local = async () => {
+    const { default: puppeteer } = await import("puppeteer");
+    return puppeteer.launch({
+      headless: true,
+      args: ["--no-sandbox", "--disable-setuid-sandbox"],
+    });
+  };
+
+  const attempts = process.env.VERCEL || process.env.CI ? [serverless, local] : [local, serverless];
+  let lastError;
+  for (const attempt of attempts) {
+    try {
+      return await attempt();
+    } catch (err) {
+      lastError = err;
+      console.warn(`[prerender] browser launch attempt failed: ${err.message}`);
+    }
+  }
+  throw lastError;
+}
+
+function stampSitemap(sitemap) {
+  // Keep <lastmod> at the deploy date so the sitemap never goes stale.
+  const today = new Date().toISOString().slice(0, 10);
+  return sitemap.replace(/<lastmod>[^<]*<\/lastmod>/g, `<lastmod>${today}</lastmod>`);
+}
+
 async function main() {
   if (!existsSync(path.join(DIST, "index.html"))) {
     console.warn("[prerender] dist/index.html not found — run `vite build` first. Skipping.");
     return;
   }
 
-  let puppeteer;
-  try {
-    ({ default: puppeteer } = await import("puppeteer"));
-  } catch {
-    console.warn("[prerender] puppeteer not installed — skipping prerender, keeping static fallback.");
-    return;
+  const sitemapPath = path.join(DIST, "sitemap.xml");
+  if (existsSync(sitemapPath)) {
+    await writeFile(sitemapPath, stampSitemap(await readFile(sitemapPath, "utf8")), "utf8");
+    console.log("[prerender] stamped sitemap.xml lastmod");
   }
 
   const server = await startServer();
   let browser;
   try {
-    browser = await puppeteer.launch({
-      headless: "new",
-      args: ["--no-sandbox", "--disable-setuid-sandbox"],
-    });
+    browser = await launchBrowser();
 
     for (const route of ROUTES) {
       const page = await browser.newPage();
@@ -141,7 +181,15 @@ async function main() {
       await page.close();
     }
   } catch (err) {
-    console.warn("[prerender] failed (keeping static fallback):", err.message);
+    const optional = process.env.PRERENDER_OPTIONAL === "1" || (!process.env.VERCEL && !process.env.CI);
+    if (optional) {
+      console.warn("[prerender] failed (keeping static fallback):", err.message);
+    } else {
+      console.error("[prerender] FAILED — crawlers would get no static HTML for /about and /community.");
+      console.error("[prerender] Set PRERENDER_OPTIONAL=1 to deploy anyway.");
+      console.error(err);
+      process.exitCode = 1;
+    }
   } finally {
     if (browser) await browser.close();
     server.close();

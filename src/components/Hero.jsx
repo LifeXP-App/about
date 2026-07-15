@@ -42,7 +42,7 @@ export function Hero() {
             transition={{ duration: 0.8, delay: 0.06, ease: EASE }}
             className="mt-5 font-serif text-[2.1rem] font-medium leading-[1.1] tracking-[-0.02em] text-text sm:text-6xl sm:leading-[1.07]"
           >
-            Make your growth impossible to ignore.
+            Gamify your goals. Make your growth impossible to ignore.
           </motion.h1>
 
           <motion.p

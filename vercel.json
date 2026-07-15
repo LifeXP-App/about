@@ -3,8 +3,8 @@
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
   "rewrites": [
-    { "source": "/community", "destination": "/community/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    { "source": "/about", "destination": "/about/index.html" },
+    { "source": "/community", "destination": "/community/index.html" }
   ],
   "headers": [
     {

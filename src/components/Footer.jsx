@@ -13,6 +13,7 @@ export function Footer() {
           </p>
         </div>
         <div className="flex items-center gap-6 text-sm text-muted">
+          <Link to="/about" className="transition-colors hover:text-text">About</Link>
           <a href="/#aspects" className="transition-colors hover:text-text">Aspects</a>
           <Link to="/community" className="transition-colors hover:text-text">Community</Link>
           <a href="/#faq" className="transition-colors hover:text-text">FAQ</a>

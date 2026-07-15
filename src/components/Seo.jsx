@@ -11,7 +11,7 @@ function setMeta(selector, content, previous) {
 }
 
 /** Route metadata for pages that differ from the static homepage head. */
-export function Seo({ title, description, path, type = "WebPage" }) {
+export function Seo({ title, description, path, type = "WebPage", schema }) {
   useEffect(() => {
     const url = new URL(path, SITE_URL).href;
     const previousTitle = document.title;
@@ -41,18 +41,20 @@ export function Seo({ title, description, path, type = "WebPage" }) {
     const routeSchema = document.createElement("script");
     routeSchema.type = "application/ld+json";
     routeSchema.dataset.routeSchema = "";
-    routeSchema.textContent = JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": type,
-      "@id": `${url}#webpage`,
-      url,
-      name: title,
-      description,
-      isPartOf: { "@id": `${SITE_URL}/#website` },
-      about: { "@id": `${SITE_URL}/#app` },
-      publisher: { "@id": `${SITE_URL}/#organization` },
-      inLanguage: "en-US",
-    });
+    routeSchema.textContent = JSON.stringify(
+      schema || {
+        "@context": "https://schema.org",
+        "@type": type,
+        "@id": `${url}#webpage`,
+        url,
+        name: title,
+        description,
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+        about: { "@id": `${SITE_URL}/#app` },
+        publisher: { "@id": `${SITE_URL}/#organization` },
+        inLanguage: "en-US",
+      }
+    );
     document.head.appendChild(routeSchema);
 
     return () => {
@@ -65,7 +67,7 @@ export function Seo({ title, description, path, type = "WebPage" }) {
       if (homeSchema && previousSchemaType) homeSchema.type = previousSchemaType;
       routeSchema.remove();
     };
-  }, [description, path, title, type]);
+  }, [description, path, schema, title, type]);
 
   return null;
 }

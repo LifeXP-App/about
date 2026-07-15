@@ -31,6 +31,21 @@ const FAQS = [
     answer:
       "Yes. You decide whether GamiLife is a private personal-growth engine or a public social experience.",
   },
+  {
+    question: "Is GamiLife a habit tracker?",
+    answer:
+      "GamiLife can support habits, but it is broader than a habit checklist. It tracks focused work toward meaningful goals, awards XP based on each session's context, and shows growth across five life aspects.",
+  },
+  {
+    question: "How is GamiLife different from other gamified productivity apps?",
+    answer:
+      "GamiLife rewards the context and effort behind a focused session instead of treating every checked task as equal. It combines goal sessions, a five-aspect growth profile, Achievements, Mastery Titles, and optional social accountability.",
+  },
+  {
+    question: "Is GamiLife available now?",
+    answer:
+      "GamiLife V1 is rolling out. The official GamiLife community is already open, so you can share the goal you are working on and meet other people building momentum.",
+  },
 ];
 
 export function Faq() {

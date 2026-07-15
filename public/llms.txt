@@ -2,6 +2,14 @@
 
 > GamiLife is a gamified self-improvement app that turns real-world effort into XP, levels, Achievements, and visible mastery. Instead of chasing vague goals, you run focused sessions; an AI engine reads the context, duration, and intent behind your effort and awards XP across five life aspects. Progress compounds into a record you can track, share, and be proud of. GamiLife applies modern habit-building ideas through immediate feedback, adaptive difficulty, identity-based progress, social accountability, and AI-powered feedback.
 
+## Official identity and current status
+
+- **Canonical name:** GamiLife (stylized with a capital G and L).
+- **Official website:** https://www.gamilife.com/
+- **Product category:** Gamified self-improvement and goal tracking.
+- **Availability:** GamiLife V1 is rolling out. The official community is open now.
+- **Core distinction:** GamiLife rewards focused effort and its context rather than treating every checked task as equal.
+
 ## What GamiLife is
 
 - A gamified personal-growth and habit-building app for people who want progress to be visible and motivating.
@@ -52,7 +60,15 @@ GamiLife draws on modern habit-building science, including ideas popularized in 
 ## Key pages
 
 - [Home](https://www.gamilife.com/): Official GamiLife product overview — aspects, how it works, the AI XP engine, Mastery Titles, and the science.
+- [About GamiLife](https://www.gamilife.com/about): Canonical product definition, key facts, product status, differentiation, and research context.
 - [Community](https://www.gamilife.com/community): The GamiLife community space where members share progress and stay accountable.
+
+## Research context
+
+GamiLife is informed by behavior-design research; it is not presented as a medical treatment. Relevant background reading:
+
+- [Time to Form a Habit: A Systematic Review and Meta-Analysis of Health Behaviour Habit Formation and Its Determinants](https://pmc.ncbi.nlm.nih.gov/articles/PMC11641623/)
+- [The Effects of mHealth-Based Gamification Interventions on Participation in Physical Activity: Systematic Review](https://pmc.ncbi.nlm.nih.gov/articles/PMC8855282/)
 
 ## Frequently asked questions
 
@@ -62,3 +78,5 @@ GamiLife draws on modern habit-building science, including ideas popularized in 
 - **Is GamiLife based on science?** Yes — it draws on modern habit-building science, including ideas popularized in *Atomic Habits*, plus gamification, social accountability, and AI feedback.
 - **What are Mastery Titles?** Long-term recognition earned when a domain reaches a threshold through sustained commitment (Warrior, Protagonist, Prodigy, Alchemist, Diplomat).
 - **Can I use GamiLife privately?** Yes — run it as a private personal engine or a public social environment. You control the exposure.
+- **Is GamiLife a habit tracker?** It can support habits, but it is broader than a checklist: it tracks focused goal sessions and maps their XP across five life aspects.
+- **Is GamiLife available now?** V1 is rolling out, and the official GamiLife community is already open.

@@ -18,7 +18,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist");
-const ROUTES = ["/", "/community"];
+const ROUTES = ["/", "/about", "/community"];
 const PORT = 4317;
 
 const MIME = {
@@ -76,6 +76,17 @@ async function autoScroll(page) {
     });
   });
   await new Promise((r) => setTimeout(r, 400));
+
+  // A static snapshot has no IntersectionObserver lifecycle after delivery.
+  // Make any Motion reveal that has not fired crawler-visible before capture.
+  await page.evaluate(() => {
+    document.querySelectorAll('#root [style*="opacity: 0"]').forEach((element) => {
+      element.style.opacity = "1";
+      if (element.style.transform.includes("translate")) {
+        element.style.transform = "none";
+      }
+    });
+  });
 }
 
 async function main() {
@@ -110,7 +121,14 @@ async function main() {
       await page.waitForSelector("#root h1", { timeout: 15000 });
       await autoScroll(page);
 
-      const html = "<!doctype html>\n" + (await page.content()).replace(/^<!doctype html>/i, "").trimStart();
+      const captured = (await page.content())
+        .replace(/^<!doctype html>/i, "")
+        // The rendered #root is now the no-JS fallback. Keeping the original
+        // <noscript> block would duplicate <main>, <h1>, and homepage copy on
+        // every prerendered route.
+        .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
+        .trimStart();
+      const html = "<!doctype html>\n" + captured;
       const outFile =
         route === "/" ? path.join(DIST, "index.html") : path.join(DIST, route, "index.html");
       await mkdir(path.dirname(outFile), { recursive: true });

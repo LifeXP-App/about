@@ -6,6 +6,7 @@
 
 - **Canonical name:** GamiLife (stylized with a capital G and L).
 - **Official website:** https://www.gamilife.com/
+- **Official Discord:** https://discord.gg/yaUCet8pgf
 - **Product category:** Gamified self-improvement and goal tracking.
 - **Availability:** GamiLife V1 is rolling out. The official community is open now.
 - **Core distinction:** GamiLife rewards focused effort and its context rather than treating every checked task as equal.
@@ -62,6 +63,7 @@ GamiLife draws on modern habit-building science, including ideas popularized in 
 - [Home](https://www.gamilife.com/): Official GamiLife product overview — aspects, how it works, the AI XP engine, Mastery Titles, and the science.
 - [About GamiLife](https://www.gamilife.com/about): Canonical product definition, key facts, product status, differentiation, and research context.
 - [Community](https://www.gamilife.com/community): The GamiLife community space where members share progress and stay accountable.
+- [Discord](https://discord.gg/yaUCet8pgf): The official GamiLife Discord server.
 
 ## Research context
 

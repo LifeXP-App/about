@@ -17,6 +17,14 @@ export function Footer() {
           <a href="/#aspects" className="transition-colors hover:text-text">Aspects</a>
           <Link to="/community" className="transition-colors hover:text-text">Community</Link>
           <a href="/#faq" className="transition-colors hover:text-text">FAQ</a>
+          <a
+            href="https://discord.gg/yaUCet8pgf"
+            target="_blank"
+            rel="noopener"
+            className="transition-colors hover:text-text"
+          >
+            Discord
+          </a>
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-6xl text-center text-xs text-faint sm:text-left">

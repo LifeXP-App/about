@@ -65,11 +65,11 @@ export function Nav() {
         </nav>
 
         <a
-          href="#community"
+          href="https://app.gamilife.com/"
           className="rounded-full bg-text px-4 py-2 text-sm font-medium text-bg transition-transform duration-150 hover:opacity-90 active:scale-[0.97]"
         >
-          <span className="hidden sm:inline">Join the community</span>
-          <span className="sm:hidden">Join</span>
+          <span className="hidden sm:inline">Login</span>
+          <span className="sm:hidden">Login</span>
         </a>
       </div>
     </motion.header>

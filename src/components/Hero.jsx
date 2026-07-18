@@ -63,17 +63,17 @@ export function Hero() {
           >
             <MagneticButton
               as="a"
-              href="#community"
+              href="https://app.gamilife.com/"
               className="rounded-full bg-accent px-6 py-3 text-[15px] font-semibold text-accent-fg shadow-[0_10px_30px_-10px_var(--accent)] transition-colors hover:bg-accent-hover"
             >
-              Join the community
+              Try for free
             </MagneticButton>
             <a
-              href="#how"
+              href="#community"
               className="inline-flex items-center gap-2 rounded-full border border-border-strong px-6 py-3 text-[15px] font-medium text-text transition-colors hover:bg-surface"
             >
-              See how it works
-              <ArrowDown size={16} />
+              Join the community
+              <ArrowRight size={16} />
             </a>
           </motion.div>
         </div>

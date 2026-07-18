@@ -16,9 +16,10 @@ const TABS = [
 ];
 
 export function CommunityBoard({ showHeading = true }) {
+  const isPrerender = typeof navigator !== "undefined" && navigator.webdriver;
   const [sort, setSort] = useState("top");
   const [posts, setPosts] = useState([]);
-  const [status, setStatus] = useState("loading"); // loading | ready | error
+  const [status, setStatus] = useState(isPrerender ? "ready" : "loading"); // loading | ready | error
 
   const load = useCallback(async (s) => {
     setStatus("loading");
@@ -31,20 +32,21 @@ export function CommunityBoard({ showHeading = true }) {
   }, []);
 
   useEffect(() => {
+    if (isPrerender) return;
     if (!COMMUNITY_READY) {
       setStatus("error");
       return;
     }
     load(sort);
-  }, [sort, load]);
+  }, [sort, load, isPrerender]);
 
   // Live: prepend posts created by other people, skipping ones we already have.
   useEffect(() => {
-    if (!COMMUNITY_READY) return;
+    if (!COMMUNITY_READY || isPrerender) return;
     return subscribeToPosts((row) =>
       setPosts((prev) => (prev.some((p) => p.id === row.id) ? prev : [row, ...prev]))
     );
-  }, []);
+  }, [isPrerender]);
 
   function handleCreated(post) {
     setPosts((prev) => [post, ...prev]);

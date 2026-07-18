@@ -40,7 +40,7 @@ export function CommunityTeaser() {
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2 text-xs text-faint">
-                  <span className="font-semibold text-accent">LifeXP Team</span>
+                  <span className="font-semibold text-accent">GamiLife Team</span>
                   <span className="rounded-full bg-accent/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
                     Team
                   </span>

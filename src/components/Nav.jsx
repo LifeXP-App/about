@@ -37,7 +37,7 @@ export function Nav() {
         <div className="flex items-center gap-2.5 pl-1">
           <a href="#top" className="flex items-center gap-2 font-serif text-xl font-semibold tracking-tight">
             <img src="/logodark.png" alt="" className="h-7 w-7" />
-            LifeXP
+            GamiLife
           </a>
           <span
             aria-hidden
@@ -61,6 +61,7 @@ export function Nav() {
           <a href="#aspects" className="transition-colors hover:text-text">Aspects</a>
           <a href="#how" className="transition-colors hover:text-text">How it works</a>
           <a href="#science" className="transition-colors hover:text-text">Why it works</a>
+          <a href="#faq" className="transition-colors hover:text-text">FAQ</a>
           <a href="#community" className="transition-colors hover:text-text">Community</a>
         </nav>
 

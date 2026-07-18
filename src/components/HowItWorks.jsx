@@ -8,7 +8,7 @@ const STEPS = [
   },
   {
     title: "Run a focused session",
-    body: "Start the timer and do the work. LifeXP reads the context behind your effort, its duration, and your intent, then awards XP the moment you finish.",
+    body: "Start the timer and do the work. GamiLife reads the context behind your effort, its duration, and your intent, then awards XP the moment you finish.",
   },
   {
     title: "Turn effort into achievements",
@@ -37,7 +37,7 @@ export function HowItWorks() {
           <Reveal delay={0.12} className="mt-10 hidden max-w-md lg:block">
             <TabletFrame
               src="/screens/tablet-goals.webp"
-              alt="The LifeXP goals screen on a tablet"
+              alt="The GamiLife goals screen on a tablet"
               width={1639}
               height={870}
             />

@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { APP_URL } from "../data.jsx";
 
 export function Footer() {
   return (
@@ -7,20 +6,29 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="text-center sm:text-left">
           <Link to="/" className="font-serif text-lg font-semibold text-text">
-            LifeXP
+            GamiLife
           </Link>
           <p className="mt-1 text-sm text-faint">
             Built for those who believe progress should be visible.
           </p>
         </div>
         <div className="flex items-center gap-6 text-sm text-muted">
+          <Link to="/about" className="transition-colors hover:text-text">About</Link>
           <a href="/#aspects" className="transition-colors hover:text-text">Aspects</a>
           <Link to="/community" className="transition-colors hover:text-text">Community</Link>
-          <a href={APP_URL} className="transition-colors hover:text-text">Open app</a>
+          <a href="/#faq" className="transition-colors hover:text-text">FAQ</a>
+          <a
+            href="https://discord.gg/yaUCet8pgf"
+            target="_blank"
+            rel="noopener"
+            className="transition-colors hover:text-text"
+          >
+            Discord
+          </a>
         </div>
       </div>
       <p className="mx-auto mt-8 max-w-6xl text-center text-xs text-faint sm:text-left">
-        © 2026 LifeXP. All rights reserved.
+        © 2026 GamiLife. All rights reserved.
       </p>
     </footer>
   );

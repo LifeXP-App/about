@@ -67,7 +67,7 @@ export function HeroDevices() {
       >
         <BrowserFrame
           src="/screens/desktop-profile.webp"
-          alt="LifeXP on the web: your growth profile with the five-aspect radar"
+          alt="GamiLife on the web: your growth profile with the five-aspect radar"
           priority
           width={1861}
           height={1001}
@@ -91,7 +91,7 @@ export function HeroDevices() {
       >
         <PhoneFrame
           src="/screens/feed-post.webp"
-          alt="A LifeXP feed post showing a drawing goal with earned XP"
+          alt="A GamiLife feed post showing a drawing goal with earned XP"
           priority
         />
       </motion.button>

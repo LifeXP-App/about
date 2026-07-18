@@ -9,6 +9,7 @@ import { Mastery } from "../components/Mastery.jsx";
 import { Science } from "../components/Science.jsx";
 import { Social } from "../components/Social.jsx";
 import { CommunityTeaser } from "../components/community/CommunityTeaser.jsx";
+import { Faq } from "../components/Faq.jsx";
 import { XpScrollBar } from "../components/XpScrollBar.jsx";
 import { Footer } from "../components/Footer.jsx";
 import { SurveyModal } from "../components/SurveyModal.jsx";
@@ -18,6 +19,8 @@ export function Home() {
   const [showSurvey, setShowSurvey] = useState(false);
 
   useEffect(() => {
+    // Crawlers and the prerender build should receive unobstructed page content.
+    if (navigator.webdriver) return;
     // Don't bother scheduling the timer if the survey is already done.
     if (hasTakenSurvey()) return;
 
@@ -37,6 +40,7 @@ export function Home() {
         <Mastery />
         <Science />
         <Social />
+        <Faq />
         <CommunityTeaser />
       </main>
       <Footer />

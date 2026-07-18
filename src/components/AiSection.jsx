@@ -19,7 +19,7 @@ export function AiSection() {
         <Reveal className="order-2 mx-auto w-full max-w-[300px] lg:order-1">
           <PhoneFrame
             src="/screens/session-xp.webp"
-            alt="A LifeXP meditation session awarding XP across aspects"
+            alt="A GamiLife meditation session awarding XP across aspects"
           />
         </Reveal>
 
@@ -30,7 +30,7 @@ export function AiSection() {
               An engine that understands effort, not just activity.
             </h2>
             <p className="mt-5 max-w-md text-lg leading-relaxed text-muted">
-              LifeXP reads the context behind what you do, then splits your
+              GamiLife reads the context behind what you do, then splits your
               reward across the aspects you actually exercised. Here is what one
               session looks like.
             </p>

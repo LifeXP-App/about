@@ -3,16 +3,23 @@ import { ArrowLeft, Clock } from "@phosphor-icons/react";
 import { CommunityBoard } from "../components/community/CommunityBoard.jsx";
 import { Reveal } from "../components/ui/Reveal.jsx";
 import { Footer } from "../components/Footer.jsx";
+import { Seo } from "../components/Seo.jsx";
 
 export function CommunityPage() {
   return (
     <>
+      <Seo
+        title="GamiLife Community — Share goals and build momentum"
+        description="Join the GamiLife community to share meaningful goals, celebrate real progress, and stay accountable with people doing the work."
+        path="/community"
+        type="CollectionPage"
+      />
       <div className="grain" aria-hidden />
 
       <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-5 sm:px-8">
           <Link to="/" className="font-serif text-xl font-semibold tracking-tight">
-            LifeXP
+            GamiLife
           </Link>
           <Link
             to="/"

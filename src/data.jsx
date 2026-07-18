@@ -11,8 +11,6 @@ import {
   Handshake,
 } from "@phosphor-icons/react";
 
-export const APP_URL = "https://lifexp.live/";
-
 export const ASPECTS = [
   {
     name: "Physique",

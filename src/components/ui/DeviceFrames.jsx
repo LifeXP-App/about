@@ -43,7 +43,7 @@ export function BrowserFrame({ src, alt, label = "Add desktop screenshot → /sc
           <span className="h-2.5 w-2.5 rounded-full bg-social/60" />
         </span>
         <span className="ml-2 flex-1 truncate rounded-md bg-bg px-3 py-1 text-[11px] text-faint">
-          lifexp.live
+          gamilife.com
         </span>
       </div>
       <FramedImage src={src} alt={alt} label={label} priority={priority} width={width} height={height} />

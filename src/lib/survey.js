@@ -1,12 +1,16 @@
 import { supabase } from "./supabase.js";
 
-const DONE_KEY = "lxp_survey_done";
-const VISITOR_KEY = "lxp_visitor_id";
+const DONE_KEY = "gamilife_survey_done";
+const VISITOR_KEY = "gamilife_visitor_id";
+const LEGACY_DONE_KEY = "lxp_survey_done";
+const LEGACY_VISITOR_KEY = "lxp_visitor_id";
 
 /* Returns true if this browser has already completed or dismissed the survey. */
 export function hasTakenSurvey() {
   try {
-    return !!localStorage.getItem(DONE_KEY);
+    const done = localStorage.getItem(DONE_KEY) || localStorage.getItem(LEGACY_DONE_KEY);
+    if (done && !localStorage.getItem(DONE_KEY)) localStorage.setItem(DONE_KEY, done);
+    return !!done;
   } catch {
     // If storage is inaccessible (private browsing edge cases), skip the survey.
     return true;
@@ -27,11 +31,11 @@ export function markSurveyDone() {
    the same user_id row even if the user clears the survey flag somehow. */
 function getVisitorId() {
   try {
-    let id = localStorage.getItem(VISITOR_KEY);
+    let id = localStorage.getItem(VISITOR_KEY) || localStorage.getItem(LEGACY_VISITOR_KEY);
     if (!id) {
       id = crypto.randomUUID();
-      localStorage.setItem(VISITOR_KEY, id);
     }
+    localStorage.setItem(VISITOR_KEY, id);
     return id;
   } catch {
     // Fallback: generate a one-off ID (won't persist, but still valid for insert).

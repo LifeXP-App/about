@@ -6,7 +6,7 @@ import { BrowserFrame } from "./ui/DeviceFrames.jsx";
 const POINTS = [
   { Icon: Trophy, title: "Proof of effort, not performance theater", body: "Share achievements and growth profiles with people who value real progress, not posturing." },
   { Icon: Users, title: "Circles around ambition", body: "Encourage discipline, nudge friends mid-session, and build momentum together." },
-  { Icon: Lock, title: "Private or public, you decide", body: "Run LifeXP as a quiet personal engine or an open social environment. You control the exposure." },
+  { Icon: Lock, title: "Private or public, you decide", body: "Run GamiLife as a quiet personal engine or an open social environment. You control the exposure." },
 ];
 
 export function Social() {
@@ -40,7 +40,7 @@ export function Social() {
         <Reveal delay={0.1} className="relative mx-auto w-full max-w-[300px] sm:max-w-[440px]">
           <BrowserFrame
             src="/screens/desktop-home.webp"
-            alt="The LifeXP social feed on the web"
+            alt="The GamiLife social feed on the web"
             className="hidden sm:block"
             width={1868}
             height={1008}
@@ -48,7 +48,7 @@ export function Social() {
           <div className="mx-auto w-[220px] max-w-[300px] sm:absolute sm:-bottom-8 sm:-right-6 sm:mx-0 sm:w-[150px] lg:w-[168px]">
             <PhoneFrame
               src="/screens/followers.webp"
-              alt="LifeXP followers list showing players with mastery titles and life levels"
+              alt="GamiLife followers list showing players with mastery titles and life levels"
             />
           </div>
         </Reveal>

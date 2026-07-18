@@ -1,4 +1,4 @@
-# LifeXP — https://about.lifexp.live
+# GamiLife — https://www.gamilife.com
 # Search, answer, and generative engines are all welcome.
 
 User-agent: *
@@ -57,4 +57,4 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-Sitemap: https://about.lifexp.live/sitemap.xml
+Sitemap: https://www.gamilife.com/sitemap.xml

@@ -1,6 +1,11 @@
 import { lazy, Suspense, useEffect } from "react";
 import { Routes, Route, useLocation } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
+import { NotFound } from "./pages/NotFound.jsx";
+
+const AboutPage = lazy(() =>
+  import("./pages/AboutPage.jsx").then((m) => ({ default: m.AboutPage }))
+);
 
 // Full chat lives on its own route and pulls in supabase-js — load on demand.
 const CommunityPage = lazy(() =>
@@ -22,6 +27,20 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route
+          path="/about"
+          element={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[100dvh] items-center justify-center text-muted">
+                  Loading GamiLife…
+                </div>
+              }
+            >
+              <AboutPage />
+            </Suspense>
+          }
+        />
+        <Route
           path="/community"
           element={
             <Suspense
@@ -35,6 +54,7 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </>
   );

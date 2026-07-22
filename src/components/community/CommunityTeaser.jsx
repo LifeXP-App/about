@@ -75,13 +75,13 @@ export function CommunityTeaser() {
           delay={0.18}
           className="mt-12 flex flex-col items-center gap-4 sm:flex-row sm:justify-center"
         >
-          <Link
-            to="https://app.gamilife.com/"
+          <a
+            href="https://app.gamilife.com/"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white/5 px-7 py-3.5 text-[15px] font-semibold text-accent-fg transition-colors hover:bg-white/10 sm:min-w-[190px]"
           >
             Try now!
             <ArrowUpRight size={17} weight="bold" />
-          </Link>
+          </a>
           <Link
             to="/community"
             className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-accent-fg shadow-[0_14px_36px_-12px_var(--accent)] transition-colors hover:bg-accent-hover sm:min-w-[190px]"

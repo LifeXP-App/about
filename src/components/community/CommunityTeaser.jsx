@@ -1,5 +1,11 @@
+import {
+  ArrowFatUp,
+  ArrowRight,
+  ArrowUpRight,
+  ChatCircle,
+  Users,
+} from "@phosphor-icons/react";
 import { Link } from "react-router-dom";
-import { ArrowFatUp, ChatCircle, ArrowRight, Users } from "@phosphor-icons/react";
 import { Reveal } from "../ui/Reveal.jsx";
 
 /* Landing-page teaser: one pinned post + a doorway to the full chat.
@@ -36,11 +42,15 @@ export function CommunityTeaser() {
                 <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-border text-muted">
                   <ArrowFatUp size={18} />
                 </span>
-                <span className="mt-1 text-sm font-semibold tabular-nums text-text">42</span>
+                <span className="mt-1 text-sm font-semibold tabular-nums text-text">
+                  42
+                </span>
               </div>
               <div className="min-w-0 flex-1">
                 <div className="flex flex-wrap items-center gap-2 text-xs text-faint">
-                  <span className="font-semibold text-accent">GamiLife Team</span>
+                  <span className="font-semibold text-accent">
+                    GamiLife Team
+                  </span>
                   <span className="rounded-full bg-accent/10 px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-accent">
                     Team
                   </span>
@@ -54,20 +64,29 @@ export function CommunityTeaser() {
                   just real effort. We read every post.
                 </p>
                 <span className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-muted">
-                  <ChatCircle size={15} />
-                  3 replies
+                  <ChatCircle size={15} />3 replies
                 </span>
               </div>
             </article>
           </div>
         </Reveal>
 
-        <Reveal delay={0.18} className="mt-12">
+        <Reveal
+          delay={0.18}
+          className="mt-12 gap-4 sm:flex sm:justify-center sm:gap-6"
+        >
+          <Link
+            to="app.gamilife.com"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-white/5 px-7 py-3.5 text-[15px] font-semibold text-accent-fg transition-colors hover:bg-white/10 sm:min-w-[190px]"
+          >
+            Try now!
+            <ArrowUpRight size={17} weight="bold" />
+          </Link>
           <Link
             to="/community"
-            className="inline-flex items-center gap-2 rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-accent-fg shadow-[0_14px_36px_-12px_var(--accent)] transition-colors hover:bg-accent-hover"
+            className="inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-full bg-accent px-7 py-3.5 text-[15px] font-semibold text-accent-fg shadow-[0_14px_36px_-12px_var(--accent)] transition-colors hover:bg-accent-hover sm:min-w-[190px]"
           >
-            Join the chat while you wait
+            Join the chat
             <ArrowRight size={17} weight="bold" />
           </Link>
         </Reveal>

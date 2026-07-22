@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from "motion/react";
-import { Sparkle, ArrowDown } from "@phosphor-icons/react";
+import { Sparkle, ArrowRight } from "@phosphor-icons/react";
 import { MagneticButton } from "./ui/MagneticButton.jsx";
 import { HeroDevices } from "./ui/HeroDevices.jsx";
 

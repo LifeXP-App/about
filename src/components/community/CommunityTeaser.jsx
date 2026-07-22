@@ -73,7 +73,7 @@ export function CommunityTeaser() {
 
         <Reveal
           delay={0.18}
-          className="mt-12 gap-4 sm:flex sm:justify-center sm:gap-6"
+          className="mt-12 gap-4 sm:flex sm:justify-center sm:gap-4"
         >
           <Link
             to="app.gamilife.com"

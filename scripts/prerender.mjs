@@ -23,7 +23,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist");
-const ROUTES = ["/", "/community"];
+const ROUTES = ["/", "/about", "/community"];
 const PORT = 4317;
 
 const MIME = {
@@ -151,42 +151,87 @@ async function main() {
   try {
     browser = await launchBrowser();
 
+    let anyFailed = false;
+
     for (const route of ROUTES) {
       const page = await browser.newPage();
-      await page.setViewport({ width: 1280, height: 900 });
-      await page.goto(`http://localhost:${PORT}${route}`, {
-        waitUntil: "networkidle0",
-        timeout: 30000,
-      });
-      await page.waitForSelector("#root h1", { timeout: 15000 });
-      await autoScroll(page);
+      try {
+        await page.setViewport({ width: 1280, height: 900 });
 
-      const captured = (await page.content())
-        .replace(/^<!doctype html>/i, "")
-        // The rendered #root is now the no-JS fallback. Keeping the original
-        // <noscript> block would duplicate <main>, <h1>, and homepage copy on
-        // every prerendered route.
-        .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
-        .trimStart();
-      const html = "<!doctype html>\n" + captured;
-      // Vercel's cleanUrls maps route.html to /route. Flat files avoid relying
-      // on directory-index behavior or SPA rewrites for direct navigation.
-      const outFile =
-        route === "/"
-          ? path.join(DIST, "index.html")
-          : path.join(DIST, `${route.slice(1)}.html`);
-      await mkdir(path.dirname(outFile), { recursive: true });
-      await writeFile(outFile, html, "utf8");
-      console.log(`[prerender] wrote ${path.relative(DIST, outFile)}`);
-      await page.close();
+        // "load" fires once the initial document + synchronous resources are
+        // done. "networkidle0" can hang indefinitely when a page opens a
+        // persistent connection (e.g. Supabase realtime WebSocket), which
+        // causes the 30 s goto timeout to fire before waitForSelector even runs.
+        await page.goto(`http://localhost:${PORT}${route}`, {
+          waitUntil: "load",
+          timeout: 30000,
+        });
+
+        // Give React time to resolve lazy imports and commit the render.
+        // A fixed pause is more reliable than networkidle on pages with
+        // long-lived connections.
+        await new Promise((r) => setTimeout(r, 4000));
+
+        // Motion initialises reveal elements with opacity:0. Force them into
+        // their final state NOW so (a) waitForFunction finds the h1 as visible
+        // and (b) the captured HTML isn't frozen mid-animation.
+        await page.evaluate(() => {
+          document.querySelectorAll('#root [style*="opacity: 0"]').forEach((el) => {
+            el.style.opacity = "1";
+            if (el.style.transform?.includes("translate")) el.style.transform = "none";
+          });
+        });
+
+        // Pure DOM-existence check — doesn't care about computed visibility.
+        await page.waitForFunction(
+          () => !!document.querySelector("#root h1"),
+          { timeout: 10000 },
+        );
+
+        await autoScroll(page);
+
+        const captured = (await page.content())
+          .replace(/^<!doctype html>/i, "")
+          // The rendered #root is now the no-JS fallback. Keeping the original
+          // <noscript> block would duplicate <main>, <h1>, and homepage copy on
+          // every prerendered route.
+          .replace(/<noscript>[\s\S]*?<\/noscript>/gi, "")
+          .trimStart();
+        const html = "<!doctype html>\n" + captured;
+        // Vercel's cleanUrls maps route.html to /route. Flat files avoid relying
+        // on directory-index behavior or SPA rewrites for direct navigation.
+        const outFile =
+          route === "/"
+            ? path.join(DIST, "index.html")
+            : path.join(DIST, `${route.slice(1)}.html`);
+        await mkdir(path.dirname(outFile), { recursive: true });
+        await writeFile(outFile, html, "utf8");
+        console.log(`[prerender] wrote ${path.relative(DIST, outFile)}`);
+      } catch (err) {
+        anyFailed = true;
+        console.warn(`[prerender] ${route} failed — skipping:`, err.message);
+      } finally {
+        await page.close();
+      }
+    }
+
+    if (anyFailed) {
+      const optional = process.env.PRERENDER_OPTIONAL === "1" || (!process.env.VERCEL && !process.env.CI);
+      if (optional) {
+        console.warn("[prerender] one or more routes skipped (static fallback kept).");
+      } else {
+        console.error("[prerender] FAILED — one or more routes could not be prerendered.");
+        console.error("[prerender] Set PRERENDER_OPTIONAL=1 to deploy anyway.");
+        process.exitCode = 1;
+      }
     }
   } catch (err) {
+    // Browser-level failure (launch, server, etc.) — not a per-route issue.
     const optional = process.env.PRERENDER_OPTIONAL === "1" || (!process.env.VERCEL && !process.env.CI);
     if (optional) {
       console.warn("[prerender] failed (keeping static fallback):", err.message);
     } else {
-      console.error("[prerender] FAILED — crawlers would get no static HTML for /about and /community.");
-      console.error("[prerender] Set PRERENDER_OPTIONAL=1 to deploy anyway.");
+      console.error("[prerender] FAILED —", err.message);
       console.error(err);
       process.exitCode = 1;
     }

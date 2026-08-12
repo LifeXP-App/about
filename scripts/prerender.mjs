@@ -23,7 +23,7 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist");
-const ROUTES = ["/", "/about", "/community"];
+const ROUTES = ["/", "/about", "/community", "/privacy-policy", "/terms-of-service"];
 const PORT = 4317;
 
 const MIME = {

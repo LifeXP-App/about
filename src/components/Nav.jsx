@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion, useScroll, useMotionValueEvent } from "motion/react";
 
 const MAX_LEVEL = 5;
@@ -63,6 +64,7 @@ export function Nav() {
           <a href="#science" className="transition-colors hover:text-text">Why it works</a>
           <a href="#faq" className="transition-colors hover:text-text">FAQ</a>
           <a href="#community" className="transition-colors hover:text-text">Community</a>
+          <Link to="/terms-of-service" className="transition-colors hover:text-text">Terms &amp; Conditions</Link>
         </nav>
 
         <a

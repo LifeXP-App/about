@@ -12,6 +12,13 @@ const CommunityPage = lazy(() =>
   import("./pages/CommunityPage.jsx").then((m) => ({ default: m.CommunityPage }))
 );
 
+const PrivacyPolicyPage = lazy(() =>
+  import("./pages/PrivacyPolicyPage.jsx").then((m) => ({ default: m.PrivacyPolicyPage }))
+);
+const TermsOfServicePage = lazy(() =>
+  import("./pages/TermsOfServicePage.jsx").then((m) => ({ default: m.TermsOfServicePage }))
+);
+
 function ScrollToTop() {
   const { pathname } = useLocation();
   useEffect(() => {
@@ -51,6 +58,34 @@ export default function App() {
               }
             >
               <CommunityPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/privacy-policy"
+          element={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[100dvh] items-center justify-center text-muted">
+                  Loading…
+                </div>
+              }
+            >
+              <PrivacyPolicyPage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/terms-of-service"
+          element={
+            <Suspense
+              fallback={
+                <div className="flex min-h-[100dvh] items-center justify-center text-muted">
+                  Loading…
+                </div>
+              }
+            >
+              <TermsOfServicePage />
             </Suspense>
           }
         />

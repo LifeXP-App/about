@@ -27,9 +27,17 @@ export function Footer() {
           </a>
         </div>
       </div>
-      <p className="mx-auto mt-8 max-w-6xl text-center text-xs text-faint sm:text-left">
-        © 2026 GamiLife. All rights reserved.
-      </p>
+      <div className="mx-auto mt-8 flex max-w-6xl flex-col items-center justify-between gap-3 text-xs text-faint sm:flex-row">
+        <p>© 2026 GamiLife. All rights reserved.</p>
+        <div className="flex items-center gap-4">
+          <Link to="/privacy-policy" className="transition-colors hover:text-muted">
+            Privacy Policy
+          </Link>
+          <Link to="/terms-of-service" className="transition-colors hover:text-muted">
+            Terms &amp; Conditions
+          </Link>
+        </div>
+      </div>
     </footer>
   );
 }

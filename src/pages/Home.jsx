@@ -23,6 +23,9 @@ export function Home() {
     if (navigator.webdriver) return;
     // Don't bother scheduling the timer if the survey is already done.
     if (hasTakenSurvey()) return;
+    // Skipping (not submitting) leaves it eligible to reappear on the next
+    // load — only show it 10% of the time so it doesn't nag every visit.
+    if (Math.random() >= 0.1) return;
 
     setShowSurvey(true);
   }, []);

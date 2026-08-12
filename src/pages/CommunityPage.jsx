@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
 import { ArrowLeft, Clock } from "@phosphor-icons/react";
+import { Link } from "react-router-dom";
 import { CommunityBoard } from "../components/community/CommunityBoard.jsx";
-import { Reveal } from "../components/ui/Reveal.jsx";
 import { Footer } from "../components/Footer.jsx";
 import { Seo } from "../components/Seo.jsx";
+import { Reveal } from "../components/ui/Reveal.jsx";
 
 export function CommunityPage() {
   return (
@@ -18,7 +18,10 @@ export function CommunityPage() {
 
       <header className="sticky top-0 z-50 border-b border-border bg-bg/80 backdrop-blur-xl">
         <div className="mx-auto flex h-16 max-w-2xl items-center justify-between px-5 sm:px-8">
-          <Link to="/" className="font-serif text-xl font-semibold tracking-tight">
+          <Link
+            to="/"
+            className="font-serif text-xl font-semibold tracking-tight"
+          >
             GamiLife
           </Link>
           <Link
@@ -39,7 +42,7 @@ export function CommunityPage() {
               V1 is rolling out
             </span>
             <h1 className="mt-5 font-serif text-4xl font-medium leading-[1.1] tracking-[-0.02em] text-text sm:text-5xl">
-              Join the chat while you wait.
+              Join the chat.
             </h1>
             <p className="mx-auto mt-4 max-w-md text-lg leading-relaxed text-muted">
               Post the goal you're chasing, upvote the ones that hit, and reply

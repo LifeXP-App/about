@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+import { ArrowRight } from "@phosphor-icons/react";
 import { Reveal } from "./ui/Reveal.jsx";
 
 const FAQS = [
@@ -73,6 +75,16 @@ export function Faq() {
               <p className="max-w-2xl pt-3 leading-relaxed text-muted">{answer}</p>
             </details>
           ))}
+        </div>
+
+        <div className="mt-8 flex justify-end">
+          <Link
+            to="/faq/your-account/how-to-delete-account"
+            className="inline-flex items-center gap-1.5 text-sm font-medium text-accent transition-colors hover:text-accent-hover"
+          >
+            View All
+            <ArrowRight size={15} weight="bold" />
+          </Link>
         </div>
       </div>
     </section>

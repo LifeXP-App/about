@@ -1,5 +1,5 @@
 import { lazy, Suspense, useEffect } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { Home } from "./pages/Home.jsx";
 import { NotFound } from "./pages/NotFound.jsx";
 
@@ -20,6 +20,9 @@ const TermsOfServicePage = lazy(() =>
 );
 const DeleteAccountPage = lazy(() =>
   import("./pages/DeleteAccountPage.jsx").then((m) => ({ default: m.DeleteAccountPage }))
+);
+const FaqPage = lazy(() =>
+  import("./pages/FaqPage.jsx").then((m) => ({ default: m.FaqPage }))
 );
 
 function ScrollToTop() {
@@ -106,6 +109,16 @@ export default function App() {
             </Suspense>
           }
         />
+        <Route
+          path="/faq/:category/:article"
+          element={
+            <Suspense fallback={<div className="flex min-h-dvh items-center justify-center text-muted">Loading…</div>}>
+              <FaqPage />
+            </Suspense>
+          }
+        />
+        {/* /faq with no params → redirect to first article */}
+        <Route path="/faq" element={<Navigate to="/faq/getting-started/what-is-gamilife" replace />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </>

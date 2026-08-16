@@ -23,7 +23,56 @@ import { fileURLToPath } from "node:url";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const DIST = path.resolve(__dirname, "../dist");
-const ROUTES = ["/", "/about", "/community", "/delete-account", "/privacy-policy", "/terms-of-service"];
+const ROUTES = [
+  "/",
+  "/about",
+  "/community",
+  "/delete-account",
+  "/privacy-policy",
+  "/terms-of-service",
+  // FAQ — one representative article per category (first article each)
+  "/faq/getting-started/what-is-gamilife",
+  "/faq/getting-started/how-to-register",
+  "/faq/getting-started/guided-tour",
+  "/faq/getting-started/xp-explained",
+  "/faq/getting-started/mastery-titles",
+  "/faq/getting-started/achievements",
+  "/faq/goals/create-a-goal",
+  "/faq/goals/goal-status",
+  "/faq/goals/edit-a-goal",
+  "/faq/goals/delete-a-goal",
+  "/faq/sessions/start-a-session",
+  "/faq/sessions/pause-a-session",
+  "/faq/sessions/complete-a-session",
+  "/faq/sessions/focus-break-cycle",
+  "/faq/activities/what-are-activities",
+  "/faq/activities/create-an-activity",
+  "/faq/activities/activity-leaderboards",
+  "/faq/social/feed",
+  "/faq/social/following",
+  "/faq/social/profile",
+  "/faq/social/leaderboards",
+  "/faq/social/privacy",
+  "/faq/discord-bot/link-discord",
+  "/faq/discord-bot/bot-commands",
+  "/faq/discord-bot/activity-feed",
+  "/faq/discord-bot/bored-command",
+  "/faq/discord-bot/roast-command",
+  "/faq/your-account/how-to-delete-account",
+  "/faq/your-account/change-password",
+  "/faq/your-account/edit-profile",
+  "/faq/your-account/notifications",
+  "/faq/help/contact-support",
+  "/faq/help/report-a-bug",
+  "/faq/help/data-and-privacy",
+  "/faq/help/troubleshooting",
+  "/faq/about/mission",
+  "/faq/about/science",
+  "/faq/about/roadmap",
+  "/faq/legal/privacy-policy",
+  "/faq/legal/terms-of-service",
+  "/faq/legal/account-deletion-policy",
+];
 const PORT = 4317;
 
 const MIME = {

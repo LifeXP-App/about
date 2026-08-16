@@ -18,7 +18,7 @@ export function Footer() {
           <Link to="/community" className="transition-colors hover:text-text">Community</Link>
           <a href="/#faq" className="transition-colors hover:text-text">FAQ</a>
           <a
-            href="https://discord.gg/yaUCet8pgf"
+            href="https://discord.gg/zW7eZEyAKQ"
             target="_blank"
             rel="noopener"
             className="transition-colors hover:text-text"

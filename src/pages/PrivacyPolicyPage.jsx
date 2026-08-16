@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "@phosphor-icons/react";
+
 import { Seo } from "../components/Seo.jsx";
 import { Footer } from "../components/Footer.jsx";
 
@@ -131,6 +132,18 @@ export function PrivacyPolicyPage() {
                 Public and Private, control notification preferences, and
                 permanently delete your account and associated data from the
                 Settings page.
+              </p>
+              <p>
+                For step-by-step instructions on account deletion — including
+                how to request it by email if you can&apos;t access the app —
+                see our{" "}
+                <Link
+                  to="/delete-account"
+                  className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                >
+                  account deletion page
+                </Link>
+                .
               </p>
             </Section>
 

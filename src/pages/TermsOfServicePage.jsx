@@ -116,10 +116,24 @@ export function TermsOfServicePage() {
 
             <Section title="Account termination">
               <p>
-                You can delete your account at any time from Settings. We
-                may suspend or terminate accounts that violate these terms,
-                engage in abusive behavior, or attempt to manipulate the
-                app&apos;s XP or ranking systems.
+                You can delete your account at any time from Settings. You
+                can also request deletion by emailing{" "}
+                <a
+                  href="mailto:support@gamilife.com"
+                  className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                >
+                  support@gamilife.com
+                </a>{" "}
+                — see our{" "}
+                <Link
+                  to="/delete-account"
+                  className="font-medium text-accent underline decoration-accent/30 underline-offset-4 hover:decoration-accent"
+                >
+                  account deletion page
+                </Link>{" "}
+                for details. We may suspend or terminate accounts that violate
+                these terms, engage in abusive behavior, or attempt to
+                manipulate the app&apos;s XP or ranking systems.
               </p>
             </Section>
 

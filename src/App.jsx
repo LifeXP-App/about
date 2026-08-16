@@ -18,6 +18,9 @@ const PrivacyPolicyPage = lazy(() =>
 const TermsOfServicePage = lazy(() =>
   import("./pages/TermsOfServicePage.jsx").then((m) => ({ default: m.TermsOfServicePage }))
 );
+const DeleteAccountPage = lazy(() =>
+  import("./pages/DeleteAccountPage.jsx").then((m) => ({ default: m.DeleteAccountPage }))
+);
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -86,6 +89,20 @@ export default function App() {
               }
             >
               <TermsOfServicePage />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/delete-account"
+          element={
+            <Suspense
+              fallback={
+                <div className="flex min-h-dvh items-center justify-center text-muted">
+                  Loading…
+                </div>
+              }
+            >
+              <DeleteAccountPage />
             </Suspense>
           }
         />

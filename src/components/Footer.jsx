@@ -36,6 +36,9 @@ export function Footer() {
           <Link to="/terms-of-service" className="transition-colors hover:text-muted">
             Terms &amp; Conditions
           </Link>
+          <Link to="/delete-account" className="transition-colors hover:text-muted">
+            Delete Account
+          </Link>
         </div>
       </div>
     </footer>

@@ -1,7 +1,7 @@
 {
-  "name": "GamiLife — Gamify your growth",
-  "short_name": "GamiLife",
-  "description": "Turn real effort into XP, levels, and mastery. Track visible progress across Physique, Energy, Logic, Creativity, and Social — built on modern habit science.",
+  "name": "Gamilife | Gamify your growth",
+  "short_name": "Gamilife",
+  "description": "A social space to track what you do in your life, together with your friends, in real time",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

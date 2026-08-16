@@ -6,7 +6,7 @@ export function Footer() {
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 sm:flex-row">
         <div className="text-center sm:text-left">
           <Link to="/" className="font-serif text-lg font-semibold text-text">
-            GamiLife
+            Gamilife
           </Link>
           <p className="mt-1 text-sm text-faint">
             Built for those who believe progress should be visible.

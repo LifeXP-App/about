@@ -85,11 +85,15 @@ export function PrivacyPolicyPage() {
                 our primary database once the session ends.
               </p>
               <p>
-                <strong className="text-text">Usage analytics — </strong>
-                we use product analytics tooling to understand how the app is
-                used (pages visited, features used, error events) so we can
-                improve it. This data is tied to your account only where
-                necessary for debugging and is not sold to third parties.
+                <strong className="text-text">Usage and crash analytics — </strong>
+                we use product analytics and crash-reporting tooling to
+                understand how the app is used (pages visited, features used,
+                error events) and to automatically capture crash reports when
+                the app encounters an unexpected error. Crash reports may
+                include device type, OS version, app version, and a stack
+                trace. This data is used solely to fix bugs and improve
+                stability, is tied to your account only where necessary for
+                debugging, and is not sold to third parties.
               </p>
               <p>
                 <strong className="text-text">Uploaded images — </strong>

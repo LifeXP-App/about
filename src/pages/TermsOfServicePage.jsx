@@ -86,6 +86,14 @@ export function TermsOfServicePage() {
                 goals that reflect real effort, rather than manipulating the
                 system to inflate XP or leaderboard rank.
               </p>
+              <p>
+                By using GamiLife you agree that we may collect usage
+                analytics and automatic crash reports to help us identify
+                bugs and improve the app. Crash reports may include technical
+                details such as device type, OS version, and error traces.
+                No personally identifying content from your goals or sessions
+                is included in crash reports.
+              </p>
             </Section>
 
             <Section title="Content you post">
